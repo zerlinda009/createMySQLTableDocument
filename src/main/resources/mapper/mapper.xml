@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Mapper">
+
+      <resultMap id="tableDescMap" type="entity.Entity">
+            <result property="filed" column="field"/>
+            <result property="type" column="type"/>
+            <result property="collation" column="collation"/>
+            <result property="isNull" column="null"/>
+            <result property="key" column="key"/>
+            <result property="defaultValue" column="default"/>
+            <result property="extra" column="extra"/>
+            <result property="privileges" column="privileges"/>
+            <result property="comment" column="comment"/>
+      </resultMap>
+
+      <select id="tableDesc"
+              parameterType="string"
+              resultMap="tableDescMap">
+            SHOW FULL COLUMNS FROM ${tableName}
+      </select>
+
+      <select id="getTableComment"
+              parameterType="string"
+              resultType="string">
+            SELECT table_comment
+            FROM information_schema.TABLES
+            WHERE table_schema = 'jiyuyun_sg_fl'
+              and TABLE_NAME = #{tableName};
+      </select>
+</mapper>
