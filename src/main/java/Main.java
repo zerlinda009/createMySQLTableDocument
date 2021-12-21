@@ -24,8 +24,9 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        String tables = "tower_anomaly,tower_construction_site,tower_crane,tower_crane_application,tower_crane_detect,tower_crane_disassembly_file,tower_crane_heightening,tower_crane_install_application,tower_crane_maintenance,tower_crane_state_of_day,tower_director,tower_driver,tower_file,tower_warning,user,user_wechat";
+        int a  = 1;
 
+        String tables = "tower_anomaly,tower_construction_site,tower_crane,tower_crane_application,tower_crane_detect,tower_crane_disassembly_file,tower_crane_heightening,tower_crane_install_application,tower_crane_maintenance,tower_crane_state_of_day,tower_director,tower_driver,tower_file,tower_warning,user,user_wechat";
         List<Map<String, Object>> mapList = getData(tables);
 
         XSSFWorkbook workbook = new XSSFWorkbook();
